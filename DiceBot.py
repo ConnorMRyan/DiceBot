@@ -71,9 +71,13 @@ def parse_die(text):
     dice_strings = text.split(';')
     die_values = []
     for each_dice in dice_strings:
-        dt_split = each_dice.split(':')
-        damage_type = dt_split[1]
-        original_roll = dt_split[0]
+        if ":" in each_dice:
+            dt_split = each_dice.split(':')
+            damage_type = dt_split[1]
+            original_roll = dt_split[0]
+        else:
+            original_roll = each_dice
+            damage_type = ""
         die_split = original_roll.split('d')
         num_die = die_split[0]
 
@@ -99,7 +103,9 @@ def stats_text(parsable_text, sides):
     returnable = []
     for x in parse_die(parsable_text):
         stats = n_sided_stats(sides, x[0])
+        die_array = [x[2], [], x[1]]
         for z in range(stats[1]):
-            returnable.append(f"{z + 1}:{int(stats[0][z])} {x[2]}\n")
+            die_array[1].append(int(stats[0][z]))
 
-    return " ".join(returnable)
+        returnable.append(die_array)
+    return returnable
