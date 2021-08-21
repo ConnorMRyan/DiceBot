@@ -43,12 +43,22 @@ def twenty_sided_stats(die_array):
 def n_sided_stats(num_sides, die_array):
     values = []
     val_array = []
-    div_step = int(50 / (num_sides / 2))
-    for n in range(int(num_sides / 2)):
-        n_val_pos = 50 + (div_step * (n + 1))
-        n_val_neg = 50 - (div_step * (n + 1))
-        val_array.append(n_val_pos)
-        val_array.append(n_val_neg)
+    if num_sides % 2 == 1:
+        val_array.append(50)
+        div_step = int(50 / ((num_sides - 1) / 2))
+        for n in range(int((num_sides - 1) / 2)):
+            n_val_pos = 50 + (div_step * (n + 1))
+            n_val_neg = 50 - (div_step * (n + 1))
+            val_array.append(n_val_pos)
+            val_array.append(n_val_neg)
+
+    else:
+        div_step = int(50 / (num_sides / 2))
+        for n in range(int(num_sides / 2)):
+            n_val_pos = 50 + (div_step * (n + 1))
+            n_val_neg = 50 - (div_step * (n + 1))
+            val_array.append(n_val_pos)
+            val_array.append(n_val_neg)
 
     for die_rolls in range(1000):
         values.append(roll_by_array(die_array))
@@ -84,9 +94,8 @@ def parse_die(text):
 
     return die_values
 
-7
 
-def stats_text(parsable_text,sides):
+def stats_text(parsable_text, sides):
     returnable = []
     for x in parse_die(parsable_text):
         stats = n_sided_stats(sides, x[0])
@@ -94,4 +103,3 @@ def stats_text(parsable_text,sides):
             returnable.append(f"{z + 1}:{int(stats[0][z])} {x[2]}\n")
 
     return " ".join(returnable)
-8
