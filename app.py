@@ -12,7 +12,6 @@ def rolldie(parsable):
         return_text.append(f"you rolled {x[1]} and got {DiceBot.roll_by_array(x[0])} {x[2]} damage")
 
     y = "  |  ".join(return_text)
-    print(y)
     return y
 
 
@@ -29,7 +28,9 @@ def six_stats(parsable):
 
 @app.route('/tabletest/<sides>/<parsable>')
 def table_test(sides, parsable):
-    table = ["""<table style="width:100%"><tr><th>ROLL</th><th>TYPE</th>"""]
+    table = ["""<style>
+    table, th, td {border: 1px solid black;}
+    </style><table style="width:100%"><tr><th>ROLL</th><th>TYPE</th>"""]
     for n in range(int(sides)):
         table.append(f"<th>{n + 1}</th>")
 
