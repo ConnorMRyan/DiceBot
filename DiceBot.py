@@ -2,15 +2,15 @@ import random
 import numpy
 
 
-def roll(num_dice, die_sides, mod):
+def roll(num_dice, die_sides, mod) -> int:
     die_total = 0
     for x in range(num_dice):
         die_total = die_total + random.randint(1, die_sides)
 
-    return [die_total + mod]
+    return die_total + mod
 
 
-def roll_by_array(die_array):
+def roll_by_array(die_array) -> int:
     return roll(int(die_array[0]), int(die_array[1]), int(die_array[2]))
 
 
@@ -101,11 +101,13 @@ def parse_die(text):
 
 def stats_text(parsable_text, sides):
     returnable = []
-    for x in parse_die(parsable_text):
+    parsed_text = parse_die(parsable_text)
+    for x in parsed_text:
         stats = n_sided_stats(sides, x[0])
         die_array = [x[2], [], x[1]]
         for z in range(stats[1]):
             die_array[1].append(int(stats[0][z]))
 
         returnable.append(die_array)
+
     return returnable
