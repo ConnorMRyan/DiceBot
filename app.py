@@ -47,6 +47,11 @@ def table_test(sides, parsable):
     return "".join(table)
 
 
+@app.route('/')
+def hello():
+    return "Hello"
+
+
 def format_die_array(die_array):
     table = ["<tr>", f"<th>{die_array[2]}</th><th>{die_array[0]}</th>"]
     for n in range(len(die_array[1])):
