@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/dieroll/<parsable>')
 def roll_die(parsable):
-    parsed_text = DiceBot.parse_die(parsable)
+    parsed_text = DiceBot.parse_text(parsable)
     return_text = []
     for x in parsed_text:
         return_text.append(f"you rolled {x[1]} and got {DiceBot.roll_by_array(x[0])} {x[2]} damage")
@@ -19,7 +19,7 @@ def roll_die(parsable):
 @app.route('/spell/cast/<spellname>/<level>')
 def roll_spell(spellname, level):
     spell = Spells.get_spell(spellname, level)
-    parsed_text = DiceBot.parse_die(spell)
+    parsed_text = DiceBot.parse_text(spell)
     print(parsed_text)
     return f"You cast {spellname} at {level}{Spells.get_number_ending(level)} level: you deal " \
            f"{DiceBot.roll_by_array(parsed_text[0][0])} {parsed_text[0][2]} damage "

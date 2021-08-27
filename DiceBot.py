@@ -67,7 +67,7 @@ def n_sided_stats(num_sides, die_array):
     return [perc_array, num_sides]
 
 
-def parse_die(text):
+def parse_text(text):
     dice_strings = text.split(';')
     die_values = []
     for each_dice in dice_strings:
@@ -99,9 +99,14 @@ def parse_die(text):
     return die_values
 
 
+def parse_die(text, split):
+    splits = text.split(split)
+    return splits
+
+
 def stats_text(parsable_text, sides):
     returnable = []
-    parsed_text = parse_die(parsable_text)
+    parsed_text = parse_text(parsable_text)
     for x in parsed_text:
         stats = n_sided_stats(sides, x[0])
         die_array = [x[2], [], x[1]]
