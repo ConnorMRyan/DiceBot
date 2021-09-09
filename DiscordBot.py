@@ -1,6 +1,9 @@
 import os
+import time
+
 import DiceBot
 import Spells
+import asyncio
 from dotenv import load_dotenv
 from discord.ext import commands
 
@@ -34,6 +37,16 @@ async def roll_die(ctx, parsable_string: str):
     return_text.append("```")
     y = "\n".join(return_text)
     await ctx.send(y)
+
+
+async def timer(num_seconds):
+    await asyncio.sleep(num_seconds)
+
+
+@bot.command(name='timer', help='Sets a timer for X seconds')
+async def time_wait(ctx, num_secs: int, alert: str):
+    await timer(num_secs)
+    await ctx.send(f'<@{ctx.message.author.id}> {alert}')
 
 
 bot.run(TOKEN)

@@ -67,8 +67,10 @@ def n_sided_stats(num_sides, die_array):
     return [perc_array, num_sides]
 
 
-def parse_text(text):
-    dice_strings = text.split(';')
+def parse_text(text: str):
+    stripped_text = ''.join(text.split())
+    print(stripped_text)
+    dice_strings = stripped_text.split(';')
     die_values = []
     for each_dice in dice_strings:
         if ":" in each_dice:
@@ -99,6 +101,10 @@ def parse_text(text):
     return die_values
 
 
+def parse_single(text):
+    return
+
+
 def parse_die(text, split):
     splits = text.split(split)
     return splits
@@ -116,3 +122,4 @@ def stats_text(parsable_text, sides):
         returnable.append(die_array)
 
     return returnable
+
