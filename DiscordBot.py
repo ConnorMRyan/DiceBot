@@ -42,7 +42,7 @@ async def roll_die(ctx, parsable_string: str):
 @bot.command(name='pokemon', help='Responds with a picture of a pokemon')
 async def pokemon(ctx, pokenum: str):
     pokemon = pb.pokemon(pokenum)
-    url = pokemon.url
+    url = pb.SpriteResource('pokemon', pokenum)
     try:
         pokenum = int(pokenum)
         if pokenum > 898 or pokenum < 0:
