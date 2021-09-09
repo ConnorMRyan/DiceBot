@@ -50,7 +50,7 @@ async def pokemon(ctx, pokenum: str):
     except ValueError:
         await ctx.send("```Silly, That's not a pokemon at all, Have a bre instead.```"
                        "https://raw.githubusercontent.com/"
-                       f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{pokenum}.png")
+                       f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{197}.png")
 
 
 async def timer(num_seconds):
