@@ -39,6 +39,12 @@ async def roll_die(ctx, parsable_string: str):
     await ctx.send(y)
 
 
+@bot.command(name='pokemon', help='Responds with a picture of a pokemon')
+async def pokemon(ctx, pokenum: int):
+    await ctx.send(f"{pokenum}", file=
+    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png")
+
+
 async def timer(num_seconds):
     await asyncio.sleep(num_seconds)
 
