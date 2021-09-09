@@ -123,3 +123,4 @@ def stats_text(parsable_text, sides):
 
     return returnable
 
+s

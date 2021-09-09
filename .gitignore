@@ -1,2 +1,2 @@
-/venv/
+pip freeze > requirements.txt/venv/
 /.env
