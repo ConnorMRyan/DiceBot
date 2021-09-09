@@ -1,5 +1,5 @@
 import os
-import time
+import random
 
 import DiceBot
 import Spells
@@ -41,8 +41,16 @@ async def roll_die(ctx, parsable_string: str):
 
 @bot.command(name='pokemon', help='Responds with a picture of a pokemon')
 async def pokemon(ctx, pokenum: int):
-    await ctx.send(f"https://raw.githubusercontent.com/"
-                   f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{pokenum}.png")
+    try:
+        if pokenum > 898 | pokenum < 0:
+            pokenum = random.randint(1, 898)
+        await ctx.send(f"https://raw.githubusercontent.com/"
+                       f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{pokenum}.png")
+    except ValueError:
+        ctx.send("```Silly, That's not a pokemon at all, Have a bre instead."
+                 "https://raw.githubusercontent.com/"
+                 f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{pokenum}.png"
+                 "``` ")
 
 
 async def timer(num_seconds):
