@@ -48,7 +48,7 @@ async def pokemon(ctx, pokenum: str):
         await ctx.send(f"https://raw.githubusercontent.com/"
                        f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{pokenum}.png")
     except ValueError:
-        await ctx.send("```Silly, That's not a pokemon at all, Have a bre instead.```"
+        await ctx.send("```Silly, That's not a pokemon at all, Have a bre instead.\n```"
                        "https://raw.githubusercontent.com/"
                        f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{197}.png")
 
