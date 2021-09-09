@@ -40,8 +40,9 @@ async def roll_die(ctx, parsable_string: str):
 
 
 @bot.command(name='pokemon', help='Responds with a picture of a pokemon')
-async def pokemon(ctx, pokenum: int):
+async def pokemon(ctx, pokenum: str):
     try:
+        pokenum = int(pokenum)
         if pokenum > 898 | pokenum < 0:
             pokenum = random.randint(1, 898)
         await ctx.send(f"https://raw.githubusercontent.com/"
