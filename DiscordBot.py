@@ -42,8 +42,12 @@ async def roll_die(ctx, parsable_string: str):
 @bot.command(name='randpoke', help='Responds with a picture of a pokemon')
 async def pokemon(ctx):
     pokenum = random.randint(1, 898)
-    await ctx.send("https://raw.githubusercontent.com/"
-                   f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{197}.png")
+    if ctx.message.author.id is not 120328178802622474:
+        await ctx.send("https://raw.githubusercontent.com/"
+                       f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{pokenum}.png")
+    elif ctx.message.author.id is 168404138865065984:
+        await ctx.send("https://raw.githubusercontent.com/"
+                       f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{151}.png")
 
 
 async def timer(num_seconds):
