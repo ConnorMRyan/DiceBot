@@ -39,19 +39,11 @@ async def roll_die(ctx, parsable_string: str):
     await ctx.send(y)
 
 
-@bot.command(name='pokemon', help='Responds with a picture of a pokemon')
-async def pokemon(ctx, pokenum: str):
-    sprite = pb.SpriteResource('pokemon', pokenum, other=True, official_artwork=True)
-    print(sprite)
-    try:
-        pokenum = int(pokenum)
-        if pokenum > 898 or pokenum < 0:
-            pokenum = random.randint(1, 898)
-        await ctx.send(f"{sprite.url}")
-    except ValueError:
-        await ctx.send("```Silly, That's not a pokemon at all, Have a bre instead.\n```"
-                       "https://raw.githubusercontent.com/"
-                       f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{197}.png")
+@bot.command(name='randpoke', help='Responds with a picture of a pokemon')
+async def pokemon(ctx):
+    pokenum = random.randint(1, 898)
+    await ctx.send("https://raw.githubusercontent.com/"
+                   f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{pokenum}.png")
 
 
 async def timer(num_seconds):
