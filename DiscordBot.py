@@ -41,7 +41,6 @@ async def roll_die(ctx, parsable_string: str):
 
 @bot.command(name='randpoke', help='Responds with a picture of a pokemon')
 async def pokemon(ctx):
-    print(ctx.message.author.id)
     pokenum = random.randint(1, 898)
     if ctx.message.author.id == 120328178802622474:
         await ctx.send("https://raw.githubusercontent.com/"
