@@ -43,7 +43,7 @@ async def roll_die(ctx, parsable_string: str):
 async def pokemon(ctx):
     pokenum = random.randint(1, 898)
     await ctx.send("https://raw.githubusercontent.com/"
-                   f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{pokenum}.png")
+                   f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{197}.png")
 
 
 async def timer(num_seconds):
