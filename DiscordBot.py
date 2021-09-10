@@ -48,10 +48,10 @@ async def pokemon(ctx):
                        f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{197}.png")
     elif ctx.message.author.id == 168404138865065984:
         await ctx.send("https://raw.githubusercontent.com/"
-                       f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{151}.png")
+                       f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{pokenum}.png")
     else:
         await ctx.send("https://raw.githubusercontent.com/"
-                       f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{151}.png")
+                       f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{pokenum}.png")
 
 
 async def timer(num_seconds):
