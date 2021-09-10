@@ -43,10 +43,13 @@ async def roll_die(ctx, parsable_string: str):
 async def pokemon(ctx):
     print(ctx.message.author.id)
     pokenum = random.randint(1, 898)
-    if ctx.message.author.id != 120328178802622474:
+    if ctx.message.author.id == 120328178802622474:
         await ctx.send("https://raw.githubusercontent.com/"
-                       f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{pokenum}.png")
+                       f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{197}.png")
     elif ctx.message.author.id == 168404138865065984:
+        await ctx.send("https://raw.githubusercontent.com/"
+                       f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{151}.png")
+    else:
         await ctx.send("https://raw.githubusercontent.com/"
                        f"PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{151}.png")
 
