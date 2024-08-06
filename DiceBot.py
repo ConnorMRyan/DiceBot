@@ -35,8 +35,7 @@ def twenty_sided_stats(die_array):
     for x in range(1000):
         values.append(roll_by_array(die_array))
 
-    perc_array = numpy.percentile(values,
-                                  [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100])
+    perc_array = numpy.percentile(values, range(5, 100, 5))
     return perc_array
 
 

@@ -49,7 +49,7 @@ def table_test(sides, parsable):
 
 @app.route('/')
 def hello():
-    return "Hello, World"
+    return "App is running."
 
 
 def format_die_array(die_array):
